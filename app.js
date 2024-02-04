@@ -1,74 +1,120 @@
-"use strict"
+"use strict";
 
-const button = document.querySelector('.button');
+const form = document.querySelector(".create-task-form");
+const taskInput = document.querySelector(".task-input");
+const filterInput = document.querySelector(".filter-input");
+const clearTasksButton = document.querySelector(".clear-tasks");
+const taskList = document.querySelector(".collection");
 
-function handleClick(event) {
+document.addEventListener("DOMContentLoaded", renderTasks);
+form.addEventListener("submit", addTask);
+taskList.addEventListener("click", handleTodoUpdate);
+clearTasksButton.addEventListener("click", removeAllTasks);
+filterInput.addEventListener("input", filterTasks);
 
-    const buttonText = event.target.textContent;
-    const container = document.querySelector('.container');
-    const dateElement = document.querySelector('.date');
-    const storageButtonStatus = localStorage.getItem('buttonStatus');
-    const storageLastTurnOnStatus = localStorage.getItem('lastTurnOn');
-    const storageLastTurnOffStatus = localStorage.getItem('lastTurnOff');
 
-    if (buttonText === 'Turn off') {
-        event.target.textContent = 'Turn on';
-        localStorage.setItem('buttonStatus', 'Turn On');
-        const date = new Date();
-        dateElement.textContent = `Last turn off ${date}`;
-        localStorage.setItem('lastTurnOff', date);
-        dateElement.style.color = "white";
-        container.style.backgroundColor = 'black';
-    } else {
-        event.target.textContent = 'Turn off';
-        localStorage.setItem('buttonStatus', 'Turn Off');
-        const date2 = new Date();
-        dateElement.textContent = `Last turn on ${date2}`;
-        localStorage.setItem('lastTurnOn', date2);
-        dateElement.style.color = "black";
-        container.style.backgroundColor = 'white';
 
-        if (storageButtonStatus === null) {
-            localStorage.setItem('buttonStatus', 'Turn On');
-            localStorage.setItem('lastTurnOn', date2);
-        }
-    }
+function renderTasks() {
+  taskList.innerHTML = "";
+  if (localStorage.getItem("tasks")) {
+    const tasks = JSON.parse(localStorage.getItem("tasks"));
+    tasks.forEach((task) => {
+      const li = document.createElement("li");
+      const button = document.createElement("button");
+      const editButton = document.createElement("button");
+      li.innerHTML = task.value;
+      button.innerHTML = "X";
+      editButton.innerHTML = "Edit";
+      button.classList.add("delete-btn");
+      editButton.classList.add("edit-btn");
+      li.append(button);
+     li.append(editButton);
+     li.setAttribute('data-id', task.id);
+      taskList.append(li);
+    });
+  }
 }
 
-function updateDisplay() {
-
-    const button = document.querySelector('.button');
-    const container = document.querySelector('.container');
-    const dateElement = document.querySelector('.date');
-
-    const storageButtonStatus = localStorage.getItem('buttonStatus');
-    const storageLastTurnOnStatus = localStorage.getItem('lastTurnOn');
-    const storageLastTurnOffStatus = localStorage.getItem('lastTurnOff');
-
-    if (storageButtonStatus === 'Turn On') {
-        button.textContent = 'Turn on'
-        dateElement.style.color = "white";
-        container.style.backgroundColor = 'black';
-
-        if (storageLastTurnOffStatus) {
-            const date = new Date(storageLastTurnOffStatus);
-            dateElement.textContent = `Last turn off: ${date}`;
+function handleTodoUpdate(event){
+  if (event.target.classList.contains("edit-btn")) {
+            const listItem = event.target.parentElement;
+            const taskId = listItem.getAttribute('data-id');
+            editTask(taskId);
         }
-
-    } else {
-        button.textContent = 'Turn off'
-        dateElement.style.color = "black";
-        container.style.backgroundColor = 'white';
+      if (event.target.classList.contains("delete-btn")) {
+        const taskId = event.target.parentElement.getAttribute('data-id');
+     removeTaskItem(taskId);
+      }
     }
 
-    if (storageLastTurnOnStatus) {
-        const date = new Date(storageLastTurnOnStatus);
-        dateElement.textContent = `Last turn on: ${date}`;
+
+function editTask(taskId) {
+    const newTaskText = prompt("Enter the new text");
+    if (newTaskText !== null && newTaskText !== "") {
+        let tasks = JSON.parse(localStorage.getItem("tasks"));
+     const index = tasks.findIndex(task => task.id.toString() === taskId);
+      tasks[index].value = newTaskText;
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+        renderTasks();
     }
+    }
+
+
+function addTask(event) {
+  event.preventDefault();
+const currentDate = Date.now();
+  const value = event.target.task.value;
+  if (value.trim() === "") {
+    return;
+  }
+  const li = document.createElement("li");
+  const button = document.createElement("button");
+  const editButton = document.createElement("button");
+const taskId = Date.now();
+  li.innerHTML = value;
+  editButton.innerHTML = "Edit";
+li.setAttribute('data-id', taskId);
+  button.innerHTML = "X";
+  button.classList.add("delete-btn");
+  editButton.classList.add("edit-btn");
+  li.append(button);
+  li.append(editButton);
+  taskList.append(li);
+storeTaskInLocalStorage({id: taskId, value: value});
+  taskInput.value = "";
+}
+
+function storeTaskInLocalStorage(taskValue) {
+  let tasks = [];
+  if (localStorage.getItem("tasks")) {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+  tasks.push(taskValue);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 
-button.addEventListener('click', handleClick);
-updateDisplay();
+function removeTaskItem(taskId) { 
+   let tasks = JSON.parse(localStorage.getItem("tasks"));
+      tasks = tasks.filter(task => task.id.toString() !== taskId);
+localStorage.setItem("tasks", JSON.stringify(tasks));
+   renderTasks();
+}
 
+function removeAllTasks() {
+  localStorage.removeItem("tasks");
+  renderTasks();
+}
 
+function filterTasks(event) {
+  const searchQuery = event.target.value;
+  const liCollection = taskList.querySelectorAll("li");
+  liCollection.forEach((task) => {
+    const liValue = task.firstChild.textContent;
+    if (liValue.includes(searchQuery)) {
+      task.style.display = "list-item";
+    } else {
+      task.style.display = "none";
+    }
+  });
+}
