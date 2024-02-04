@@ -1,0 +1,556 @@
+.detailed-info-text {
+   color: #0536FC;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: bold;
+   font-weight: 700;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+   text-transform: uppercase;
+   opacity: 0.9;
+}
+
+.title {
+   color: #000;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 38px;
+   font-style: bold;
+   font-weight: 700;
+   line-height: 42px;
+   letter-spacing: -1.14px;
+   text-transform: uppercase;
+}
+
+.legend {
+   color: #000;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: bold;
+   font-weight: 700;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+   text-transform: uppercase;
+}
+
+.payment-type, .frequency, .submit{
+   color: #000;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+}
+
+.amount {
+   color: #000;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+}
+
+.submit .span {
+   color: #000;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+   padding-right: 8px;
+}
+
+.submit .link {
+   color: #0536FC;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+}
+
+.email .email-text {
+   color: #000;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 300;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+}
+
+.name .name-text {
+   color: #000;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 300;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+}
+
+.container {
+   display: flex;
+   flex-direction: column;
+   max-width: 1340px;
+   padding-left: 50px;
+   padding-right: 50px;
+}
+
+.section-investment {
+   display: flex;
+   flex-direction: column;
+   padding-top: 150px;
+   padding-left: 160px;
+}
+
+
+
+.info {
+   padding-left: 670px;
+}
+
+.section-payment .payment {
+   border: unset;
+}
+
+.info .bank-card-payment {
+   border: unset;
+}
+
+.info .name {
+   border: unset;
+}
+
+.info .email {
+   border: unset;
+}
+
+.info .submit {
+   border: unset;
+}
+
+.payment {
+   padding-left: 0px;
+}
+
+.title {
+   margin: 0px;
+   padding-top: 30px;
+}
+
+.section-payment {
+   padding-top: 70px;
+
+}
+
+.info {
+   padding-top: 48px;
+}
+
+.bank-card-payment .legend {
+   margin: 0px;
+   padding-bottom: 30px;
+}
+
+.bank-card-payment {
+   padding: 0px;
+   margin: 0px;
+}
+
+.amount {
+   padding-bottom: 20px;
+}
+
+.amount .bank-card-amount {
+   padding: 0px;
+}
+
+.name .legend {
+   padding-top: 48px;
+   padding-bottom: 20px;
+}
+
+
+.name {
+   padding: 0px;
+   margin: 0px;
+}
+
+
+.email .legend {
+   padding-top: 30px;
+   padding-bottom: 20px;
+}
+
+
+.email {
+   padding: 0px;
+   margin: 0px;
+}
+
+.submit {
+   padding-top: 30px;
+   padding-left: 0px;
+   padding-right: 0px;
+}
+
+.submit .agreement {
+   padding-bottom: 48px;
+
+}
+
+.section-payment {
+   display: flex;
+   flex-direction: row;
+}
+
+.email .email-text {
+   border: unset;
+   border-bottom: 1px solid;
+   border-color: rgba(0, 0, 0, 0.15);
+   flex-shrink: 0;
+   min-width: 238px;
+}
+
+.name .name-text {
+   border: unset;
+   border-bottom: 1px solid;
+   border-color: rgba(0, 0, 0, 0.15);
+   flex-shrink: 0;
+   min-width: 238px;
+}
+
+
+.info .amount .bank-card-amount {
+   border: unset;
+   border-bottom: 1px solid;
+   border-color: rgba(0, 0, 0, 0.15);
+   flex-shrink: 0;
+   width: 607px;
+   border-right: 1px solid rgba(0, 0, 0, 0.15);
+   border-left: 1px solid rgba(0, 0, 0, 0.15);
+   height: 49px;
+   padding-left: 35px;
+}
+
+.info {
+   position: relative;
+}
+
+.info .name {
+   position: relative;
+}
+
+.info .email {
+   position: relative;
+}
+
+.error {
+   position: absolute;
+   top: 13px;
+   color: red;
+   font-size: 12px;
+   left: 240px;
+}
+
+.error-1 {
+   position: absolute;
+   top: 30px;
+   color: red;
+   font-size: 12px;
+   left: 610px;
+}
+
+.amount{
+   position: relative;
+}
+
+.checkmark {
+   display: block;
+   width: 20px;
+   height: 20px;
+   border: 1px solid rgba(0, 0, 0, 0.15);
+   border-radius: 50%;
+}
+
+.input:checked~.checkmark::before {
+   display: block;
+   content: '';
+   width: 10px;
+   height: 10px;
+   background-color: blue;
+   border-radius: 50%;
+   margin: 5px;
+}
+
+
+
+.checkmark-submit {
+   display: block;
+   width: 20px;
+   height: 20px;
+   border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.input-submit:checked~.checkmark-submit::before {
+   display: block;
+   content:'';
+   width: 10px;
+height: 7px;
+border-left: 1px solid rgba(5, 54, 252, 1);
+border-bottom: 1px solid rgba(5, 54, 252, 1);
+transform: rotate(-45deg);
+margin: 4px;
+}
+
+.input-submit {
+   display: none;
+}
+
+.submit-text {
+   width: 213px;
+   height: 55px;
+   flex-shrink: 0;
+   background-color: rgba(5, 54, 252, 1);
+   color: white;
+   margin: 0px;
+   padding: 0px;
+   border: none;
+   cursor: pointer;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+}
+
+.number-item {
+   display: flex;
+   width: 160px;
+   height: 50px;
+   flex-shrink: 0;
+   background-color: #FFF;
+   stroke-width: 1px;
+   color: rgba(0, 0, 0, 1);
+   border: 1px solid rgba(0, 0, 0, 0.15);
+   justify-content: center;
+   align-items: center;
+   border-right: 0.5px;
+   cursor: pointer;
+}
+
+.bank-card-payment {
+   display: flex;
+   flex-direction: row;
+}
+
+.input {
+   display: none;
+}
+
+.bank-card-radio:checked+.number-item {
+   background-color: rgba(5, 54, 252, 1);
+   color: white;
+}
+
+
+.last-item {
+   border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+
+.bank-card-amount::-webkit-inner-spin-button,
+.bank-card-amount::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+.bank-card-amount {
+   -moz-appearance: textfield;
+}
+
+.frequency-items{
+   display: flex;
+   flex-direction: row;
+}
+
+.frequency{
+   display: flex;
+   flex-direction: row;
+}
+
+.submit-items{
+   display: flex;
+   flex-direction: row;
+   padding-bottom: 16px;
+}
+
+.span{
+   padding-left: 15px;
+}
+
+.payment-items{
+   display: flex;
+   flex-direction: row;
+margin-left:645px;
+margin-top: -23px; 
+}
+
+.section-payment .payment{
+   display: flex;
+   flex-direction: row;
+   margin: 0px;
+   padding: 0px;
+}
+
+.legend-payment{
+   padding-left: 160px;
+}
+
+.payment-type{
+   display: flex;
+   flex-direction: row;
+   padding-left: 30px;
+}
+
+.payment-type{
+   cursor: pointer;
+}
+
+.frequency{
+   cursor: pointer;
+}  
+
+.checkmark{
+   margin-right: 15px;
+}
+
+.frequency{
+   padding-right: 30px;
+}
+
+@media screen and (max-width:1385px) {
+   
+   .info {
+      padding-left: 600px;
+   }
+
+   .payment-items{
+      margin-left: 570px;
+      }
+   
+}
+
+@media screen and (max-width:1300px) {
+   
+   .info {
+      padding-left: 400px;
+   }
+
+   .payment-items{
+   margin-left: 370px;
+   }
+   
+   .legend-payment{
+      padding-left: 0px;
+   }
+}
+
+@media screen and (max-width:1100px) {
+   
+   .info {
+      padding-left: 300px;
+   }
+
+   .payment-items{
+   margin-left: 270px;
+   }
+   
+  
+}
+
+@media screen and (max-width:1000px) {
+   
+   .info {
+      padding-left: 0px;
+   }
+
+  .payment-items{
+   margin-left:0px;
+margin-top: 43px; 
+  }
+
+  .payment-type:first-of-type{
+  padding-left: 0px;
+  }
+  
+  .section-investment{
+   padding-left: 0px;
+  }
+
+  .title {
+   font-size: 30px;
+
+   
+}
+.section-investment{
+      padding-top:50px;
+   }
+}
+@media screen and (max-width:715px) {
+.number-item{
+   width: 100px;
+}
+
+.info .amount .bank-card-amount {
+   width: 367px;
+}
+
+.error-1{
+   left: 370px;
+}
+}
+
+@media screen and (max-width:600px) {
+.section-investment{
+  max-width:400px ;
+}
+
+.payment-items {
+   flex-direction: column;
+}
+
+.payment-type{
+padding-left: 0px;
+padding-top: 10px;
+}
+
+.submit .link {
+   max-width: 200px;
+}
+}
+
+@media screen and (max-width:475px) {
+
+   .title {
+      font-size: 25px;
+}
+
+.number-item{
+   width: 75px;
+}
+
+.info .amount .bank-card-amount {
+   width: 267px;
+}
+
+.error-1{
+   left: 270px;
+}
+}

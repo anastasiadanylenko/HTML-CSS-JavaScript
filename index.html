@@ -1,15 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ukr">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teach for Ukraine</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
-<body>
-	<div class="container">
-	<button class="button" type="button">Turn off</button>
-	<div class="date"></div></div>
-	<script type="text/javascript" src="app.js"></script>
+
+<body class="container">
+    <section class="section-investment">
+        <span class="detailed-info-text">інвестиції</span>
+        <h1 class="title">зробити — інвестиції у програму</h1>
+    </section>
+    <section class="section-payment">
+        <form action="" method="">
+            <fieldset class="payment">
+                <legend class="legend-payment legend">виберіть спосіб оплати</legend>
+                <div class="payment-items">
+                <label class="payment-type">
+                    <input class="payment-type-radio input" type="radio" name="payment-type-choice"
+                        value="Банківська карта" id="Банківська карта" checked>
+                    <span class="checkmark"></span> 
+                    Банківська карта
+                </label>
+                <label class="payment-type">
+                    <input class="payment-type-radio input" type="radio" name="payment-type-choice" value="PayPal"
+                        id=" PayPal">
+                    <span class="checkmark"></span>
+                    PayPal
+                </label>
+                <label class="payment-type">
+                  
+                    <input class="payment-type-radio input" type="radio" name="payment-type-choice"
+                        value="Банківська платіжна квитанція" id="Банківська платіжна квитанція">
+                    <span class="checkmark"></span>
+                    Банківська платіжна квитанція
+                </label></div>
+            </fieldset>
+        </form>
+    </section>
+    <section class="info">
+        <form action="" method="">
+            <fieldset class="bank-card-payment">
+                <legend class="legend">банківська карта</legend>
+                <label class="bank-card">
+                <input class="bank-card-radio input" type="radio" name="bank-card-choice" value="50 000"
+                    id="input-50 000" checked>
+                <div class="number-item">50 000</div>
+                </label>
+                <label class="bank-card">
+                    
+                    <input class="bank-card-radio input" type="radio" name="bank-card-choice" value="30 000"
+                        id="input-30 000">
+                        <div class="number-item">30 000</div>
+                </label>
+                <label class="bank-card">
+                    
+                    <input class="bank-card-radio input" type="radio" name="bank-card-choice" value="input-10 000"
+                        id="10 000">
+                        <div class="number-item">10 000</div>
+                </label>
+                <label class="bank-card">
+                    <input class="bank-card-radio input" type="radio" name="bank-card-choice" value="input-1 000"
+                        id="1 000">
+                        <div class="number-item last-item">1 000</div>
+                </label>
+            </fieldset>
+            <form>
+                <div class="amount">
+                    <input class="bank-card-amount" type="number" name="amount" min="0" title="1"
+                        placeholder="Інша сумма">
+                        <span class="error-1">Error</span>
+                </div>
+                
+                <div class="frequency-items">
+                <label class="frequency">
+                    <input class="frequency-radio input" type="radio" name="frequency-radio-choice" value="Щомісячно"
+                        id="Щомісячно" checked>
+                    <span class="checkmark"></span>
+                    Щомісячно
+                </label>
+                <label class="frequency">
+                    <input class="frequency-radio input" type="radio" name="frequency-radio-choice" value="Одноразово"
+                        id="Одноразово">
+                    <span class="checkmark"></span>
+                    Одноразово
+                </label>
+            </div>
+            </form>
+        </form>
+        <form action="" method="">
+            <fieldset class="name">
+                <legend class="legend">ім’я</legend>
+                <input class="name-text" type="name" name="name" pattern="[А-Яа-яЇїІіЄєҐґ]"
+                    placeholder="Напишіть ваше ім’я">
+                <span class="error">Error</span>
+            </fieldset>
+        </form>
+        <form action="" method="">
+            <fieldset class="email">
+                <legend class="legend">Email</legend>
+                <input class="email-text" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                    name="email-address" placeholder="Напишіть вашу електронну адресу">
+                <span class="error">Error</span>
+        </form>
+        <form>
+            <fieldset class="submit">
+                <div class="agreement">
+                    <label class="label-submit">
+                        <div class=submit-items>
+                             <input class="agreement-text input-submit" type="checkbox" name="agreement-text" value="yes"
+                            id="Я приймаю" required>
+                        <span class="checkmark-submit"></span></label>
+                    <span class="span">Я приймаю</span> <a href="" class="link">Договір оферти</a></div>
+                    <label class="label-submit">
+                        <div class=submit-items>
+                            <input class="agreement-text input-submit" type="checkbox" name="agreement-text" value="yes"
+                            required>
+                        <span class="checkmark-submit"></span>
+                        <span class="span">Я приймаю</span> <a href="" class="link">Угоду про використання персональних
+                            даних</a></div>
+                </div></label>
+                <input class="submit-text" type="submit">
+            </fieldset>
+        </form>
+    </section>
 </body>
+
 </html>
