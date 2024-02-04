@@ -1,74 +1,159 @@
-"use strict"
+"use strict";
 
-const button = document.querySelector('.button');
+// https://api.github.com
+//clientId - d9308aacf8b204d361fd
+//secretId - 84969aeef73956f4ec9e8716d1840532802bb81b
 
-function handleClick(event) {
+const GITHUB_API_URL = "https://api.github.com";
+const searchUser = document.querySelector(".searchUser");
 
-    const buttonText = event.target.textContent;
-    const container = document.querySelector('.container');
-    const dateElement = document.querySelector('.date');
-    const storageButtonStatus = localStorage.getItem('buttonStatus');
-    const storageLastTurnOnStatus = localStorage.getItem('lastTurnOn');
-    const storageLastTurnOffStatus = localStorage.getItem('lastTurnOff');
+class GitHubController {
+  constructor(githubService, ui) {
+    this.githubService = githubService;
+    this.ui = ui;
+  }
 
-    if (buttonText === 'Turn off') {
-        event.target.textContent = 'Turn on';
-        localStorage.setItem('buttonStatus', 'Turn On');
-        const date = new Date();
-        dateElement.textContent = `Last turn off ${date}`;
-        localStorage.setItem('lastTurnOff', date);
-        dateElement.style.color = "white";
-        container.style.backgroundColor = 'black';
-    } else {
-        event.target.textContent = 'Turn off';
-        localStorage.setItem('buttonStatus', 'Turn Off');
-        const date2 = new Date();
-        dateElement.textContent = `Last turn on ${date2}`;
-        localStorage.setItem('lastTurnOn', date2);
-        dateElement.style.color = "black";
-        container.style.backgroundColor = 'white';
+  async handleSearchInput(inputValue) {
 
-        if (storageButtonStatus === null) {
-            localStorage.setItem('buttonStatus', 'Turn On');
-            localStorage.setItem('lastTurnOn', date2);
-        }
-    }
+    if (inputValue.trim() !== "") {
+      const userData = await this.githubService.getUser(inputValue);
+
+      if (userData.message) {
+        this.ui.showAlert(userData.message, "alert alert-danger");
+        return;
+      }
+       const userRepos = await this.githubService.getUsersRepositories(userData.repos_url);
+
+     this.ui.showProfile(userData),
+      this.ui.showRepos(userRepos)
+    return;
+    } 
+    this.ui.clearProfile();
+  }
 }
 
-function updateDisplay() {
+class GitHubService {
+  constructor(clientId, secretId) {
+    this.clientId = clientId;
+    this.secretId = secretId;
+  }
 
-    const button = document.querySelector('.button');
-    const container = document.querySelector('.container');
-    const dateElement = document.querySelector('.date');
+  async getUser(userName) {
+    const response = await fetch(
+      `${GITHUB_API_URL}/users/${userName}?client_id=${this.clientId}&client_secret=${this.secretId}`
+    );
 
-    const storageButtonStatus = localStorage.getItem('buttonStatus');
-    const storageLastTurnOnStatus = localStorage.getItem('lastTurnOn');
-    const storageLastTurnOffStatus = localStorage.getItem('lastTurnOff');
+    const user = await response.json();
 
-    if (storageButtonStatus === 'Turn On') {
-        button.textContent = 'Turn on'
-        dateElement.style.color = "white";
-        container.style.backgroundColor = 'black';
+    return user;
+  }
 
-        if (storageLastTurnOffStatus) {
-            const date = new Date(storageLastTurnOffStatus);
-            dateElement.textContent = `Last turn off: ${date}`;
-        }
+  async getUsersRepositories(reposUrl) {
+    try{
+      const response = await fetch(`${reposUrl}?sort=created&per_page=5`);
 
-    } else {
-        button.textContent = 'Turn off'
-        dateElement.style.color = "black";
-        container.style.backgroundColor = 'white';
+
+   const repositories = await response.json();
+    
+    return repositories;
+  } catch(err) {
+console.error('Error fetching repositories: ${err.message}');
+  }
+}}
+
+class UI {
+  constructor() {
+    this.profile = document.querySelector(".profile");
+    this.alertContainer = document.querySelector(".search");
+    this.reposContainer = document.querySelector(".repos");
+  }
+
+  showRepos(repositories) {
+    if (this.reposContainer) {
+      if (repositories.length === 0){
+      console.error("reposContainer not found.");
+      return;
     }
 
-    if (storageLastTurnOnStatus) {
-        const date = new Date(storageLastTurnOnStatus);
-        dateElement.textContent = `Last turn on: ${date}`;
+    this.reposContainer.innerHTML = "";
+
+    if (!repositories || repositories.length === 0) {
+      this.reposContainer.innerHTML = "<p>No repositories found.</p>";
+      return;
     }
+
+    repositories.forEach(repo => {
+      const repoElement = document.createElement("div");
+      repoElement.innerHTML = `<p>${repo.name}</p>`;
+      this.reposContainer.appendChild(repoElement);
+    });
+  }}
+
+  showProfile(user) {
+    this.profile.innerHTML = `
+      <div class="card card-body mb-3">
+        <div class="row">
+          <div class="col-md-3">
+            <img class="img-fluid mb-2" src="${user.avatar_url}">
+            <a href="${user.html_url}" target="_blank" class="btn btn-primary btn-block mb-4">View Profile</a>
+          </div>
+          <div class="col-md-9">
+            <span class="badge badge-primary">Public Repos: ${user.public_repos}</span>
+            <span class="badge badge-secondary">Public Gists: ${user.public_gists}</span>
+            <span class="badge badge-success">Followers: ${user.followers}</span>
+            <span class="badge badge-info">Following: ${user.following}</span>
+            <br><br>
+            <ul class="list-group">
+              <li class="list-group-item">Company: ${user.company}</li>
+              <li class="list-group-item">Website/Blog: ${user.blog}</li>
+              <li class="list-group-item">Location: ${user.location}</li>
+              <li class="list-group-item">Member Since: ${user.created_at}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h3 class="page-heading mb-3">Latest Repos</h3>
+      <div class="repos"></div>
+    `;
+  }
+
+  clearProfile() {
+    this.profile.innerHTML = "";
+  }
+
+  showAlert(message, className) {
+    const div = document.createElement("div");
+
+    div.className = className;
+    div.innerHTML = message;
+
+    this.alertContainer.before(div);
+
+    this.clearAlert(div);
+  }
+
+  clearAlert(alert) {
+    setTimeout(() => {
+      alert.remove();
+    }, 3000);
+  }
 }
 
+const ui = new UI();
+const githubService = new GitHubService(
+  "8ad51313c425dfc246635",
+  "8db649ff883a65d85ef234594be41b69c22b6904"
+);
+const githubController = new GitHubController(githubService, ui);
 
-button.addEventListener('click', handleClick);
-updateDisplay();
+let inputTimer;
+
+searchUser.addEventListener("input", (e) => {
+clearTimeout(inputTimer);
+  const inputValue = e.target.value;
+  inputTimer= setTimeout(async () => {
+  await githubController.handleSearchInput(inputValue);
+  }, 5000);
+});
 
 
