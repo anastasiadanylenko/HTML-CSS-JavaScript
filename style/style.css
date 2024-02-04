@@ -1,0 +1,251 @@
+.logo-text {
+   color: #000;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: light;
+   font-weight: 300;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+   opacity: 0.3499999940395355;
+}
+
+.text-list-item {
+   color: #000;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+   text-transform: uppercase;
+   opacity: 0.8500000238418579;
+}
+
+.choosed-language {
+   color: #0536FC;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+   text-transform: uppercase;
+   opacity: 0.8500000238418579;
+}
+
+.detailed-info-text {
+   color: #0536FC;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: bold;
+   font-weight: 700;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+   text-transform: uppercase;
+   opacity: 0.8999999761581421;
+}
+
+.title {
+   color: #000;
+   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 57px;
+   font-style: bold;
+   font-weight: 700;
+   line-height: 59px;
+   letter-spacing: -1.71px;
+   text-transform: uppercase;
+}
+
+.button {
+   color: #FFF;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+   letter-spacing: -0.48px;
+   text-transform: uppercase;
+   background: #0536FC;
+   border-style: none;
+   padding-top: 18px;
+   padding-bottom: 18.25px;
+   padding-left: 35px;
+   padding-right: 35px;
+}
+
+.subtitle {
+   color: #000;
+   font-family: "Basis Grotesque Pro", Helvetica, sans-serif;
+   font-size: 38px;
+   font-style: bold;
+   font-weight: 700;
+   line-height: 42px;
+   letter-spacing: -1.14px;
+   text-transform: uppercase;
+}
+
+.section-goal-img {
+   background: #FF8201;
+   width: 720px;
+   height: 820px;
+   flex-shrink: 0;
+   grid-area: section-goal-img;
+}
+
+.section-programm-img {
+   width: 721px;
+   height: 836px;
+   flex-shrink: 0;
+   grid-area: section-programm-img;
+}
+
+.container {
+   display: grid;
+   grid-template-columns: repeat(2, 720px);
+   grid-template-rows: 70px repeat(2, 820px);
+   grid-template-areas: "nav nav"
+      "section-programm section-programm-img"
+      "section-goal-img section-goal";
+}
+
+.link {
+   text-decoration: none;
+   display: flex;
+}
+
+
+
+.nav-list {
+   list-style-type: none;
+   display: flex;
+   flex-direction: row;
+   gap: 40px;
+   margin-top: 0px;
+}
+
+.nav {
+   flex-direction: row;
+   grid-area: nav;
+   display: flex;
+   flex-direction: row;
+   height: 70px;
+   margin-top: 0px;
+}
+
+.programm {
+   grid-area: section-programm;
+}
+
+.goal {
+   grid-area: section-goal;
+}
+
+.programm-img {
+   display: block;
+   margin-left: 0px;
+}
+
+.goal-img {
+   display: block;
+   margin-right: 0px;
+}
+
+.language-switcher {
+   display: flex;
+   flex-direction: row;
+}
+
+.programm {
+   max-width: 425px;
+   margin-left: 210px;
+   margin-top: 100px;
+}
+
+.programm .main-text {
+   max-width: 237px;
+   margin-bottom: 70px;
+}
+
+.title {
+   margin-top: 30px;
+   margin-bottom: 70px;
+}
+
+.goal {
+   max-width: 430px;
+   margin-left: 50px;
+   margin-top: 150px;
+}
+
+.goal .main-text {
+   max-width: 320px;
+   margin-bottom: 100px;
+}
+
+.subtitle {
+   margin-top: 30px;
+   margin-bottom: 70px;
+}
+
+.button:hover {
+   cursor: pointer;
+}
+
+.logo {
+   margin-top: 30px;
+   margin-left: 70px;
+}
+
+.logo-text {
+   margin-top: 24px;
+   margin-left: 10px;
+   margin-right: 90.54px;
+}
+
+.text-list-item {
+   margin-top: 24px;
+}
+
+.choosed-language {
+   margin-top: 22px;
+   margin-bottom: 24px;
+   margin-left: 244px;
+   line-height: 24px;
+}
+
+.logo-link {
+   display: flex;
+}
+
+.section-programm-img {
+   position: relative;
+   z-index: 1;
+}
+
+.programm-vector {
+   position: absolute;
+   bottom: 35px;
+   right: 35px;
+   z-index: 2;
+}
+
+.link-vector {
+   height: 5px;
+   width: 10px;
+   flex-shrink: 0;
+}
+
+.list-item .list-vector {
+   height: 5px;
+   width: 10px;
+   margin-top: 32px;
+   margin-left: 10px;
+}
+
+.language-switcher .img-switch {
+   height: 5px;
+   width: 10px;
+   margin-top: 32px;
+   margin-left: 10px;
+}
