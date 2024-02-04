@@ -1,20 +1,159 @@
+.main {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
 
-.button{
-    height: 50px;
-    width: 100px;
-    cursor: pointer;
-    color: black;
- }
- .container{
-   background-color: white;
-   height: 100vh;
-   width: 100vw;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
- }
- .date{
-     color:black;
-     
- }
+#tab1-content {
+  max-width: 1000px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+}
+
+.link:hover {
+  color: #555;
+}
+
+.date1,
+.date2 {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.submit {
+  cursor: pointer;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.submit:hover {
+  background-color: #45a049;
+}
+
+.buttons-container button,
+.measure button,
+.additional-buttons button {
+  margin-right: 10px;
+  padding: 12px;
+  font-size: 14px;
+}
+
+#resultsTableContainer {
+  max-width: 100%;
+  border: 1px solid #ddd;
+
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+.th,
+.td {
+  border: 1px solid #ddd;
+  text-align: left;
+    }
+
+
+.th {
+  background-color: #4caf50;
+  color: white;
+}
+
+#errorDisplay {
+  color: red;
+  margin-top: 10px;
+}
+
+@media (max-width: 380px) {
+  #tab1-content {
+    padding: 10px;
+  }
+
+  .date1,
+  .date2 {
+    padding: 8px;
+  }
+
+  .submit,
+  .measure,
+  .week-days,
+  .plus {
+    margin-right: 5px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .td,
+  .th {
+    padding: 8px;
+  }
+}
+
+.switch {
+  display: inline-block;
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.switch:hover {
+  background-color: #2980b9;
+}
+
+.all-days,
+.work-days,
+.weekends,
+.days,
+.hours,
+.minutes,
+.seconds,
+.week,
+.month {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+#resultDisplay {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+  font-size: 18px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  background-color: #4caf50;
+}
+
+#resultsTableContainer th,
+#resultsTableContainer td
+{
+  border: 1px solid #ddd;
+}
