@@ -1,0 +1,418 @@
+.body {
+    margin: 0px; 
+}
+.header {
+    background-image: url('./images/header.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 1064px;
+margin-bottom: 0px;
+    position: relative;
+    z-index: 1;
+    background-position: 50%;
+    background-position: center;
+    overflow: hidden;
+    margin-top: 0px;
+    box-sizing: border-box;
+
+ 
+}
+.header::before{
+    background-color: black;
+opacity: 0.7;
+z-index: 2;
+content: "";
+left: 0;
+position: absolute;
+right: 0;
+top: 0;
+bottom: 0;
+}
+
+.header-logo{
+    height: 100px; 
+}
+
+.logo{
+   height: 80px;
+max-width: 144px;
+    padding-left: 65px;
+    padding-top: 5px;
+}
+
+.h1 {
+font-size: 90px;
+max-width: 568px;
+}
+
+.header-main-text{
+    z-index: 10;
+    color: #ffffff;
+    opacity: 1;
+    position: absolute;
+    top: -30px;
+    
+}
+
+
+
+.header-main-text{
+    max-width: 568px;
+    margin-left: 90px;
+    margin-top: 300px;
+}
+
+.data-block{
+    display: flex;
+    flex-direction: row;
+    margin-left: 90px;
+    margin-right: 90px;
+    position: absolute;
+    z-index: 3;
+   top: 1070px;
+   
+}
+
+.section1, .section3{
+    background-color: #181818;
+    color: #ffffff;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 85px;
+    padding-bottom: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section2{
+    background-color: #0c0d0c;
+    color: #ffffff;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 85px;
+    padding-bottom: 85px;
+}
+
+.h2{
+    color: #fcb900;
+    line-height: 1.2em;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.img1, .img2, .img3{
+    height: 80px;
+    width: 80px;
+}
+
+.main-page{
+    display: flex;
+    flex-direction: column;
+}
+
+.shop{
+    margin-top: 400px;
+    display: flex;
+    flex-direction: column;
+}
+.shop-item1, .shop-item2, .shop-item3{
+    display: flex;
+    flex-direction: column;
+}
+.shop-img{
+    height: 260px;
+    width: 260px;
+}
+
+.shop-data{
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-item{
+    display: flex;
+    flex-direction: row;
+}
+
+.video-content{
+    background-color: #000000 ;
+    background-image: url(./images/vegetables-background.svg);
+    height: 1570px;
+    background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+padding-top: 100px;
+padding-bottom: 100px;
+margin-bottom: 0px;
+overflow: hidden;
+position: relative;
+z-index: 1;
+
+
+}
+
+.video-img{
+    position: absolute;
+    top: 85;
+}
+
+.video-content:before {
+   background-color: #000000 ;
+    content: "";
+    z-index: 2;
+    left: 0;
+position: absolute;
+right: 0;
+top: 0;
+bottom: 0;
+opacity:0.8;
+}
+
+.text {
+color: white;
+z-index: 10;
+box-sizing: border-box;
+font-size: 20px;
+margin-left: auto;
+margin-right: auto;
+justify-content: center;
+position: absolute;
+top:896px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+.shop2{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.shop-item4, .shop-item5, .shop-item6{
+    display: flex;
+    flex-direction: column;
+}
+.shop-img{
+    height: 260px;
+    width: 260px;
+}
+
+.shop-data{
+    display: flex;
+    flex-direction: column;
+}
+
+.video-img{
+    z-index: 100;
+ height: 726px;
+ margin-left: 90px;
+    margin-right: 90px;
+}
+
+.under-video{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  
+}
+
+
+.meal1{
+    background-image: url('./images/staub-3pc-stackable-pot-set-black-lifestyle-with-food-borough-kitchen_2048x2048.webp');
+    height: 630px;
+    width: 630px;
+    background-size: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    position: relative;
+
+}
+
+.meal2{
+    background-image: url('./images/staubredpaella_2.jpg'); 
+    height: 630px;
+    width: 630px;
+    background-size: cover;
+    margin-left: 30px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.line1{
+    display: flex;
+    flex-direction: row;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+
+.meal3{
+    background-image: url('./images/staub-enameled-cast-iron-petite-french-oven-alt-821-2ea81efa45ac4e39b5c72f5b15821db9.jpg');
+    height: 630px;
+    width: 630px;
+    background-size: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    position: relative;
+
+}
+
+.meal4{
+    background-image: url('./images/staub-cast-iron-5-qt-tall-cocotte-grenadine-b7d66970b35344e383d22af4794c9500.jpg'); 
+    height: 630px;
+    width: 630px;
+    background-size: cover;
+    margin-left: 30px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    position: relative;
+   
+}
+
+.line2{
+    display: flex;
+    flex-direction: row;
+    margin-left: 90px;
+    margin-right: 90px;
+    
+}
+
+.meal-text{
+    background-color: white;
+    padding: 50px 50px 50px 50px;
+  width: 470px;
+  position: absolute;
+ bottom: 30px;
+  left: 30px;
+
+}
+
+.clients{
+    margin-bottom: 100px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+.client-list{
+    display: flex;
+    flex-direction: row;
+}
+
+.client2, .client3{
+margin-left: 30px;
+background-color: #F2F7F6;
+
+}
+
+.client1{
+    background-color: #F2F7F6;
+}
+
+.client-img{
+    height: 160px;
+    width: 160px;
+    border-radius: 100%;
+   
+}
+
+.footer{
+    background-color: #000000 ;
+    background-image: url(./images/footer-vegetables-background.svg);
+  
+    background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+height: 666px;
+overflow: hidden;
+position: relative;
+z-index: 1;
+
+
+}
+
+.footer:before {
+   background-color: #000000 ;
+    content: "";
+    z-index: 2;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top:0;
+    bottom: 0;
+opacity:0.8;
+
+}
+
+.subscribe{
+    background-color: #000000 ;
+    background-image: url(./images/staub-cast-iron-5-qt-tall-cocotte-grenadine-b7d66970b35344e383d22af4794c9500.jpg);
+  
+    background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+height: 483px;
+margin-left: 90px;
+margin-right: 90px;
+overflow: hidden;
+position: relative;
+z-index: 6;
+margin-bottom: -150px;
+color:white;
+}
+
+.subscribe:before {
+   background-color: #000000 ;
+    content: "";
+    z-index: 2;
+    left: 0;
+    
+    right: 0;
+    top:0;
+    bottom: 0;
+opacity:0.5;
+position: absolute;
+}
+
+.logo-white{
+    height: 80px;
+    max-width: 144px;
+ 
+}
+
+
+.grid-item1{
+    grid-area: grid-item1;
+
+  }
+  
+  .grid-item2{
+    grid-area: grid-item2;
+
+  }
+  
+  .grid-item3{
+    grid-area: grid-item3;
+ 
+  }
+  .grid-item4{
+  
+    grid-area: grid-item4;
+  
+  }
+
+ 
+
+  .grid{
+    display: grid;
+    position: absolute;
+    top:300px;
+    grid-template-areas: "grid-item1 grid-item2 grid-item3 grid-item4";
+    gap: 20px;
+    color: white;  z-index: 10;
+    margin-left: 90px;
+    margin-right: 90px;
+  }
